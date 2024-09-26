@@ -1,4 +1,8 @@
+using CleanArch.Application.Interfaces;
+using CleanArch.Application.Services;
+using CleanArch.Domain.Interfaces;
 using CleanArch.Infra.Data.Context;
+using CleanArch.Infra.Data.Repository;
 using CleanArch.MVC.Data;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
@@ -18,6 +22,9 @@ builder.Services.AddDatabaseDeveloperPageExceptionFilter();
 builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();    
 builder.Services.AddRazorPages();
+
+builder.Services.AddScoped<ICourseService, CourseService>();
+builder.Services.AddScoped<ICourseRepository, CourseRepository>();
 
 var app = builder.Build();
 

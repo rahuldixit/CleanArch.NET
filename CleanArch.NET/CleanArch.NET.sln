@@ -7,8 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArch.Application", "Cl
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArch.Domain", "CleanArch.Domain", "{EBEBFFE8-9F87-4758-B1FC-B02D130EA9CA}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArch.Infro.IoC", "CleanArch.Infro.IoC", "{BCB3DDC4-4446-45E8-B9AE-858DE73E7AFF}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CleanArch.Infra.Data", "CleanArch.Infra.Data", "{264C6A25-875C-4F4F-B797-F085AFC4D4F9}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Presentation", "Presentation", "{1D72DA06-F314-4195-AECC-46D5EEBC8482}"
