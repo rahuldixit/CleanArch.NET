@@ -1,9 +1,14 @@
 using CleanArch.Application.Interfaces;
 using CleanArch.Application.Services;
+using CleanArch.Domain.CommandHandlers;
+using CleanArch.Domain.Commands;
+using CleanArch.Domain.Core.Bus;
 using CleanArch.Domain.Interfaces;
+using CleanArch.Infra.Bus;
 using CleanArch.Infra.Data.Context;
 using CleanArch.Infra.Data.Repository;
 using CleanArch.MVC.Data;
+using MediatR;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
 using Microsoft.EntityFrameworkCore;
@@ -23,8 +28,16 @@ builder.Services.AddDefaultIdentity<IdentityUser>(options => options.SignIn.Requ
     .AddEntityFrameworkStores<ApplicationDbContext>();    
 builder.Services.AddRazorPages();
 
+
+builder.Services.AddScoped<IMediatorHandler, InMemoryBus>();
+builder.Services.AddScoped<IRequestHandler<CreateCourseCommand, bool>, CourseCommandHandler>();
+
+
 builder.Services.AddScoped<ICourseService, CourseService>();
 builder.Services.AddScoped<ICourseRepository, CourseRepository>();
+
+builder.Services.AddScoped<UniversityDBContext>();
+
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 var app = builder.Build();
