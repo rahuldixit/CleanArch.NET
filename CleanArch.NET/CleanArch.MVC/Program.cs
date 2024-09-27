@@ -1,3 +1,4 @@
+using CleanArch.Application.AutoMapper;
 using CleanArch.Application.Interfaces;
 using CleanArch.Application.Services;
 using CleanArch.Domain.CommandHandlers;
@@ -42,6 +43,8 @@ builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly));
 
+builder.Services.AddAutoMapper(typeof(AutoMapperConfiguration));
+AutoMapperConfiguration.RegisterMappings();
 
 var app = builder.Build();
 

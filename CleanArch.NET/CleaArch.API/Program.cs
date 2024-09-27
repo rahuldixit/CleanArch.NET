@@ -6,10 +6,10 @@ using CleanArch.Domain.Core.Bus;
 using CleanArch.Domain.Interfaces;
 using CleanArch.Infra.Bus;
 using CleanArch.Infra.Data.Context;
-using Microsoft.Extensions.Configuration;
 using CleanArch.Infra.Data.Repository;
 using MediatR;
 using Microsoft.EntityFrameworkCore;
+using CleanArch.Application.AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -39,6 +39,8 @@ builder.Services.AddDbContext<UniversityDBContext>(options =>
     options.UseSqlServer(UniversityDBConnection));
 ;
 
+builder.Services.AddAutoMapper(typeof(AutoMapperConfiguration));
+AutoMapperConfiguration.RegisterMappings();
 var app = builder.Build();
 
 app.UseSwagger();
