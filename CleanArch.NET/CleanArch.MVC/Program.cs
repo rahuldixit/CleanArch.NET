@@ -40,6 +40,9 @@ builder.Services.AddScoped<UniversityDBContext>();
 
 builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(typeof(Program).Assembly));
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
